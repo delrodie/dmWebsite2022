@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Paaji");
+.cover-container {
+  background-image: url("https://picsum.photos/1200/850");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("https://picsum.photos/1200/850");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://picsum.photos/1200/850");
+  background-size: cover;
+}
+
+.bg-transparent {
+  --bs-bg-opacity:0.1;
+  background-color: rgba(0, 0, 0, var(--bs-bg-opacity)) !important;
+}
+
+.nav-item {
+  font-weight: bold;
+}
+
+.nav-item.btn {
+  margin-left: 10px;
+}
+
+.nav-link span {
+  color: white;
+  margin-left: 10px;
+}
+
+.nav-link span:hover {
+  color: #d80109;
+}
+
+.corps {
+  height: 100vh;
+}
+
+main .slogan {
+  margin: 70px auto 100px;
+  /*font-family: 'Baloo Paaji';
+        text-transform: uppercase;*/
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+main .slogan h1 div {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+main .slogan h1 div:first-of-type {
+  -webkit-animation: showup 7s infinite;
+          animation: showup 7s infinite;
+}
+
+main .slogan h1 div:last-of-type {
+  width: 0;
+  -webkit-animation: reveal 7s infinite;
+          animation: reveal 7s infinite;
+}
+
+main .slogan h1 div:last-of-type span {
+  margin-left: -355px;
+  -webkit-animation: slidein 7s infinite;
+          animation: slidein 7s infinite;
+  color: yellow;
+}
+
+.services {
+  margin-top: 100px;
+}
+
+.services .card .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  background: rgba(1, 75, 136, 0.7);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.services .card .card-overlay .card-title {
+  color: yellow;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.services .card:hover .card-overlay {
+  height: 100%;
+}
+
+footer {
+  font-size: 0.8rem;
+}
+
+@-webkit-keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slidein {
+  0% {
+    margin-left: -800px;
+  }
+  20% {
+    margin-left: -800px;
+  }
+  35% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -800px;
+  }
+  20% {
+    margin-left: -800px;
+  }
+  35% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes reveal {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 355px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 355px;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 355px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 355px;
+  }
+}
+/*# sourceMappingURL=dreammaker.css.map */

@@ -1,0 +1,21 @@
+
+.cover-container{
+    background-image: url('https://picsum.photos/1200/850');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.overlay{
+    background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.6), 
+      rgba(0, 0, 0, 0.6)
+    ),
+    /* bottom, image */
+    url('https://picsum.photos/1200/850');
+    background-size: cover;
+}
+.bg-transparent{
+    --bs-bg-opacity:0.2;
+    background-color:rgba(0,0,0,var(--bs-bg-opacity))!important
+}

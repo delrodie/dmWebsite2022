@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dream Maker - Fais ton rêve, nous le réalisons{% endblock %}</title>
+    <link rel="icon" href="{{ absolute_url(asset('build/images/favico.svg')) }}">
+    {% block meta %}
+        <meta name="keywords" content="Dream Maker, musique, événementiel, multimédia, production, distribution "  />
+        <meta name="description" content="Dream Maker est une entreprise opérant dans l’industrie musicale, l’événementiel et le multimédia depuis 2010. Elle excelle dans les domaines suivants :" />
+        <meta name="revisit" content="7 days" />
+        <meta name="revisit-after" content="7 days">
+        <meta name="Author" content="Dream Maker, Delrodie AMOIKON">
+        <meta name="Copyright" content="dreammaker-ci.com">
+        <meta name="Content-Language" content="FR">
+        <meta name="distribution" content="global" />
+        <meta name="Audience" content="All" />
+        <meta name="Robots" content="full">
+
+        <link rel="canonical" href="{{ absolute_url(path('app_home')) }}" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Dream Maker - Fais ton rêve, nous le réalisons" />
+        <meta property="og:description" content="Dream Maker est une entreprise opérant dans l’industrie musicale, l’événementiel et le multimédia depuis 2010. Elle excelle dans les domaines suivants : " />
+        <meta property="og:url" content="{{ absolute_url(path('app_home')) }}" />
+        <meta property="og:site_name" content="Dream Maker />
+        <meta property="article:section" content="Item" />
+        <meta property="article:published_time" content="2018-01-20T15:25:59+00:00" />
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/logo.png')) }}" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:description" content="Dream Maker est une entreprise opérant dans l’industrie musicale, l’événementiel et le multimédia depuis 2010. Elle excelle dans les domaines suivants :"/>
+        <meta name="twitter:title" content="Dream Maker - Fais ton rêve, nous le réalisons"/>
+        <meta name="twitter:domain" content="{{ absolute_url(path('app_home')) }}"/>
+        <meta name="twitter:image:src" content="{{ absolute_url(asset('build/images/logo.png')) }}"/>
+    {% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('dreammaker') }}
+    {% endblock %}
+</head>
+<body class="overlay d-flex h-100 text-white bg-dark">
+    <div class="text-center d-flex w-100 h-100 mx-auto flex-column corps">
+    <header class="mb-auto sticky-top">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                <div class="container">
+                    <a class="navbar-brand" href="#"><img src="{{ absolute_url(asset('build/images/logo-white.png')) }}" alt="Logo Dream Maker" class="img-fluid" width="75"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                        <ul class="navbar-nav justify-content-between align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><span>Accueil</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"   data-bs-toggle="modal" data-bs-target="#presentation"><span>Qui sommes-nous?</span>   </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><span>Showbiz</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><span>Communication</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><span>Évènementiel</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><span>Contact</span></a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 10px;">
+                                <a href="http://shop.dreammakerci.com" class="btn btn-outline-danger btn-sm" target="_blank">Boutique</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="px-3 align-middle">
+        <div class="align-middle slogan">
+            <h1>
+                <div>Fais ton rêve, </div>
+                <div><span>nous le réalisons!</span></div>
+            </h1>
+        </div>
+        <div class="services">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" data-aos="fade-right" data-aos-duration="2500">
+                            <a href="#">
+                                <div class="card bg-light">
+                                    <img src="{{ absolute_url(asset('build/images/departement/cover_showbiz.jpg') )}}" class="card-img-top" alt="Showbiz">
+                                    <div class="card-overlay">
+                                        <div class="card-title">Showbiz</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-duration="2500">
+                            <a href="#">
+                                <div class="card">
+                                    <img src="{{ absolute_url(asset('build/images/departement/cover_com.jpg')) }}" class="card-img-top" alt="Agence de communication">
+                                    <div class="card-overlay">
+                                        <div class="card-title">Communication</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-left" data-aos-duration="2500">
+                            <a href="#">
+                                <div class="card">
+                                    <img src="{{ absolute_url(asset('build/images/departement/cover_event.jpg')) }}" class="card-img-top" alt="Agence évenementielle">
+                                    <div class="card-overlay">
+                                        <div class="card-title">Evenementiel</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="modal fade" id="presentation" tabindex="-1" aria-labelledby="presentationLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="presentationLabel">Qui sommes-nous?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ absolute_url(asset('build/images/logo.png')) }}" alt="Logo Dream Maker" srcset="" class="img-fluid" width="250">
+                    <p>
+                        <strong>Dream Maker</strong>   est une entreprise opérant dans l’industrie musicale, l’événementiel et le multimédia depuis 2010.
+                        Elle   excelle dans les domaines suivants :
+                    <ul>
+                        <li>La production</li>
+                        <li>La distribution d’œuvres musicales,</li>
+                        <li>L’encadrement et la formation des managers d’artistes,</li>
+                        <li>La communication institutionnelle,</li>
+                        <li>Le multimédia (réalisation de vidéos, de films institutionnels, …),</li>
+                        <li>L’événementiel c'est-à-dire les Événements privés (séminaires, remises de diplômes, concerts privés, …)
+                            et les Evénements grand public (dédicaces, concerts, festivals, …).</li>
+                    </ul>
+                    </p>
+                    <p>
+                        Composée d’une équipe à la fois compétente et expérimentée, elle est la meilleure entreprise du showbiz ivoirien
+                        car elle dispose d’un label conséquent et très riche. En effet, elle distribue 107 artistes locaux parmi lesquels
+                        Alpha Blondy, Tiken Jah Fakoly, Magic system, Serge Beynaud, Arafat dj,  les Patrons avec 153 albums au compteur.
+                    </p>
+                    <p>
+                        Aussi grâce à sa collaboration avec SONY et UNIVERSAL MUSIC GROUP, Dream Maker distribue plus de 81 albums d’artistes
+                        internationaux tels que Céline Dion, Michael Jackson, Singuila et Fally Ipupa. C’est une entreprise qui n’est point
+                        restée en marge de l’évolution technologie puisqu’elle fait de la distribution en ligne à travers les meilleures plateformes
+                        musicales avec à son compteur 234 albums.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-auto fixed-bottom">
+        <p>&COPY; Copyright 2014-{{ "now"|date('Y') }}, Dream Maker | Tous droits réservés</p>
+    </footer>
+</div>
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    {{ encore_entry_script_tags('dreammaker') }}
+    <script>
+        AOS.init();
+    </script>
+{% endblock %}
+</body>
+</html>

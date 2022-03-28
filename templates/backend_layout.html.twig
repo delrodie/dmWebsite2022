@@ -83,7 +83,7 @@
                 <li class="nav-item {% if menu == 'admin' %}show{% endif %}">
                     <a href="#" class="nav-link with-sub {% if menu == 'admin' %}active{% endif %}"><i data-feather="layers"></i> Administration</a>
                     <nav class="nav nav-sub">
-                        <a href="{{ absolute_url(path('app_backend') )}}" class="nav-sub-link {% if sub_menu == 'user' %} active{% endif %}">Utilisateur</a>
+                        <a href="{{ absolute_url(path('app_admin_user_index') )}}" class="nav-sub-link {% if sub_menu == 'user' %} active{% endif %}">Utilisateur</a>
                     </nav>
                 </li>
             </ul>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="dropdown-menu-body">
                         <a href="{{ path('app_backend') }}" class="dropdown-item"><i data-feather="briefcase"></i> Mot de passe</a>
-                        <a href="{{ path('app_backend') }}" class="dropdown-item"><i data-feather="log-out"></i> Déconnexion</a>
+                        <a href="{{ path('app_logout') }}" class="dropdown-item"><i data-feather="log-out"></i> Déconnexion</a>
                     </div>
                 </div><!-- dropdown-menu -->
             </div>

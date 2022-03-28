@@ -24,7 +24,7 @@
         <meta property="og:title" content="Dream Maker - Fais ton rêve, nous le réalisons" />
         <meta property="og:description" content="Dream Maker est une entreprise opérant dans l’industrie musicale, l’événementiel et le multimédia depuis 2010. Elle excelle dans les domaines suivants : " />
         <meta property="og:url" content="{{ absolute_url(path('app_home')) }}" />
-        <meta property="og:site_name" content="Dream Maker />
+        <meta property="og:site_name" content="Dream Maker" />
         <meta property="article:section" content="Item" />
         <meta property="article:published_time" content="2018-01-20T15:25:59+00:00" />
         <meta property="og:image" content="{{ absolute_url(asset('build/images/logo.png')) }}" />
@@ -57,7 +57,7 @@
                                 <a class="nav-link" href="#"   data-bs-toggle="modal" data-bs-target="#presentation"><span>Qui sommes-nous?</span>   </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><span>Showbiz</span></a>
+                                <a class="nav-link" href="{{ absolute_url(path('app_showbiz_home')) }}"><span>Showbiz</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><span>Communication</span></a>
@@ -89,7 +89,7 @@
                 <div class="col-lg-8">
                     <div class="row justify-content-center">
                         <div class="col-md-4" data-aos="fade-right" data-aos-duration="2500">
-                            <a href="#">
+                            <a href="{{ absolute_url(path('app_showbiz_home')) }}">
                                 <div class="card bg-light">
                                     <img src="{{ absolute_url(asset('build/images/departement/cover_showbiz.jpg') )}}" class="card-img-top" alt="Showbiz">
                                     <div class="card-overlay">

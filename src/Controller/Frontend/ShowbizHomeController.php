@@ -2,6 +2,8 @@
 
 namespace App\Controller\Frontend;
 
+use App\Entity\ShowbizSlide;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +16,10 @@ class ShowbizHomeController extends AbstractController
     /**
      * @Route("/", name="app_showbiz_home")
      */
-    public function index(): Response
+    public function index(ManagerRegistry $managerRegistry): Response
     {
         return $this->render('showbiz_home/index.html.twig', [
-            'controller_name' => 'ShowbizHomeController',
+            'slides' => $managerRegistry->getRepository(ShowbizSlide::class)->findBy(['statut'=>true]),
         ]);
     }
 }

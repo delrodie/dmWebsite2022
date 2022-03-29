@@ -10,12 +10,14 @@
 	{
 		private $mediaPresentation;
 		private $mediaSlide;
+		private $mediaService;
 		
-		public function __construct($presentationDirectory, $slideDirectory
+		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory
 		)
 		{
 			$this->mediaPresentation = $presentationDirectory;
 			$this->mediaSlide = $slideDirectory;
+			$this->mediaService = $serviceDirectory;
 		}
 		
 		public function entity($entity, $entityName, $mediaFile =  null)
@@ -62,6 +64,7 @@
 			try {
 				if ($media === 'presentation') $file->move($this->mediaPresentation, $newFilename);
 				elseif ($media === 'slide') $file->move($this->mediaSlide, $newFilename);
+				elseif ($media === 'service') $file->move($this->mediaService, $newFilename);
 				else $file->move($this->mediaPresentation, $newFilename);
 			}catch (FileException $e){
 			
@@ -81,6 +84,7 @@
 		{
 			if ($media === 'presentation') unlink($this->mediaPresentation.'/'.$ancienMedia);
 			elseif ($media === 'slide') unlink($this->mediaSlide.'/'.$ancienMedia);
+			elseif ($media === 'service') unlink($this->mediaService.'/'.$ancienMedia);
 			else return false;
 			
 			return true;

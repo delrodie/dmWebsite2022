@@ -27,3 +27,4 @@ services:
         arguments:
             $presentationDirectory: '%kernel.project_dir%/public/upload/showbiz/entreprise'
             $slideDirectory: '%kernel.project_dir%/public/upload/showbiz/slides'
+            $serviceDirectory: '%kernel.project_dir%/public/upload/showbiz/services'

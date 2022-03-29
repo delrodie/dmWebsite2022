@@ -12,6 +12,25 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('dreammaker') }}
         {% endblock %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104978409-10"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-104978409-10');
+        </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ884ETE9P"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-HJ884ETE9P');
+        </script>
     </head>
     <body>
         <div class="wraper">
@@ -22,7 +41,7 @@
                             <div class="col-12 d-flex justify-content-lg-between align-items-center">
                                 <a href="{{ absolute_url(path('app_home'))}}"><i class="fa-solid fa-house"></i></a>
                                 <a href="#">Communication</a>
-                                <a href="#">Evenementiel</a>
+                                <a href="#">Évènementiel</a>
                                 <a href="#">DreamTV</a>
                                 <a href="#" class="icon-social"><i class="fa-brands fa-facebook-square"></i></a>
                                 <a href="#" class="icon-social"><i class="fa-brands fa-twitter-square"></i></a>
@@ -48,7 +67,7 @@
                                         <a class="nav-link active" aria-current="page" href="{{ absolute_url(path('app_showbiz_home')) }}"><span>Accueil</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><span>Présentation</span>   </a>
+                                        <a class="nav-link" href="{{ absolute_url(path('app_showbiz_presentation') )}}"><span>Présentation</span>   </a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -22,4 +22,20 @@ class ShowbizHomeController extends AbstractController
             'slides' => $managerRegistry->getRepository(ShowbizSlide::class)->findBy(['statut'=>true]),
         ]);
     }
+	
+	/**
+	 * @Route("/partenaires", name="app_showbiz_partenaires")
+	 */
+	public function partenaire()
+	{
+		return $this->render('showbiz_home/partenaires.html.twig');
+	}
+	
+	/**
+	 * @Route("/rubrique/droite", name="app_showbiz_rubrique_droite")
+	 */
+	public function rubrique()
+	{
+		return $this->render('showbiz_home/rubrique_droite.html.twig');
+	}
 }

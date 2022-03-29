@@ -5,7 +5,7 @@
         <div class="col-md-6 mt-3 mb-3">{{ form_row(form.media) }}</div>
         {% if showbiz_slide.media %}
             <div class="col-md-6 mb-3 mt-5">
-                <img src="{{ absolute_url(asset('upload/slides/'~ showbiz_slide.media)) }}" alt="{{ showbiz_slide.titre }}" class="img-thumbnail" width="300" style="float: left; margin-right: 20px;">
+                <img src="{{ absolute_url(asset('upload/showbiz/slides/'~ showbiz_slide.media)) }}" alt="{{ showbiz_slide.titre }}" class="img-thumbnail" width="300" style="float: left; margin-right: 20px;">
             </div>
         {% endif %}
         <div class="col-md-12 checkbox mb-1 ml-4">

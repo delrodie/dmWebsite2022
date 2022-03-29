@@ -25,5 +25,5 @@ services:
 
     App\Utilities\GestionMedia:
         arguments:
-            $presentationDirectory: '%kernel.project_dir%/public/build/upload/entreprise'
-            $slideDirectory: '%kernel.project_dir%/public/upload/slides'
+            $presentationDirectory: '%kernel.project_dir%/public/upload/showbiz/entreprise'
+            $slideDirectory: '%kernel.project_dir%/public/upload/showbiz/slides'

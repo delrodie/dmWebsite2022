@@ -169,7 +169,7 @@
         <div class="carousel-inner"  data-aos="zoom-in" data-aos-duration="2000">
             {% for slide in slides %}
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <img src="{{ absolute_url(asset('upload/slides/'~ slide.media)) }}" class="d-block w-100" alt="{{ slide.titre }}">
+                    <img src="{{ absolute_url(asset('upload/showbiz/slides/'~ slide.media)) }}" class="d-block w-100" alt="{{ slide.titre }}">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ slide.titre }}</h5>
                         <p>{{ slide.description }}</p>

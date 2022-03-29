@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ShowbizPresentation index{% endblock %}
+
+{% block body %}
+    <h1>ShowbizPresentation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Resume</th>
+                <th>Media</th>
+                <th>Tags</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for showbiz_presentation in showbiz_presentations %}
+            <tr>
+                <td>{{ showbiz_presentation.id }}</td>
+                <td>{{ showbiz_presentation.titre }}</td>
+                <td>{{ showbiz_presentation.contenu }}</td>
+                <td>{{ showbiz_presentation.resume }}</td>
+                <td>{{ showbiz_presentation.media }}</td>
+                <td>{{ showbiz_presentation.tags }}</td>
+                <td>{{ showbiz_presentation.slug }}</td>
+                <td>
+                    <a href="{{ path('app_backend_showbiz_presentation_show', {'id': showbiz_presentation.id}) }}">show</a>
+                    <a href="{{ path('app_backend_showbiz_presentation_edit', {'id': showbiz_presentation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backend_showbiz_presentation_new') }}">Create new</a>
+{% endblock %}

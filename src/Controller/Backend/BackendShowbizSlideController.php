@@ -20,12 +20,10 @@ class BackendShowbizSlideController extends AbstractController
 	const menu = "showbiz";
 	const sub_menu = "slider";
 	
-	private $utility;
 	private $gestionMedia;
 	
 	public function __construct(Utility $utility, GestionMedia $gestionMedia)
 	{
-		$this->utility = $utility;
 		$this->gestionMedia = $gestionMedia;
 	}
 	
@@ -120,6 +118,10 @@ class BackendShowbizSlideController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$showbizSlide->getId(), $request->request->get('_token'))) {
             $showbizSlideRepository->remove($showbizSlide);
+			
+			if ($showbizSlide->getMedia()){
+				$this->gestionMedia->removeUpload($showbizSlide->getMedia(), 'slide');
+			}
         }
 
         return $this->redirectToRoute('app_backend_showbiz_slide_index', [], Response::HTTP_SEE_OTHER);

@@ -12,46 +12,30 @@
             </div>
             <section class="services">
                 <div class="row g-4 py-2 row-cols-1 row-cols-sm-2 row-cols-lg-4">
-                    <div class="col" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        <div class="illustration">
-                            <i class="fa-solid fa-gears"></i>
+                    {% for service in services %}
+                        <div class="col" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-left' }}" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                            <div class="illustration">
+                                {% if not service.media %}
+                                    {% if service.slug == 'Production' %}
+                                        <i class="fa-solid fa-gears"></i>
+                                    {% elseif service.slug == 'Scene' %}
+                                        <i class="fa-solid fa-music"></i>
+                                    {% elseif service.slug == 'Brand' %}
+                                        <i class="fa-solid fa-address-card"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-gavel"></i>
+                                    {% endif %}
+
+                                {% else %}
+
+                                {% endif %}
+                            </div>
+                            <h1>{{ service.titre }}</h1>
+                            <p>{{ service.resume }}...</p>
+                            <a href="{{ path('app_showbiz_service_show', {'slug': service.slug}) }}">Voir détails &raquo;</a>
                         </div>
-                        <h1>Production</h1>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt itaque tempore quae neque illum fugiat, voluptate aliquam, inventore consequatur exercitationem!
-                        </p>
-                        <a href="#">Voir détails &raquo;</a>
-                    </div>
-                    <div class="col" data-aos="fade-down" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        <div class="illustration">
-                            <i class="fa-solid fa-music"></i>
-                        </div>
-                        <h1>Scène</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati temporibus soluta magnam in ut aliquid veritatis quasi beatae. Ipsam odio repellendus?
-                        </p>
-                        <a href="#">Voir détails &raquo;</a>
-                    </div>
-                    <div class="col" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        <div class="illustration">
-                            <i class="fa-solid fa-address-card"></i>
-                        </div>
-                        <h1>Brand</h1>
-                        <p>
-                            Architecto eveniet cupiditate tempore debitis recusandae. Explicabo et modi molestias vel architecto totam! Facilis voluptatem iste natus aperiam pariatur neque!
-                        </p>
-                        <a href="#">Voir détails &raquo;</a>
-                    </div>
-                    <div class="col" data-aos="fade-left" data-aos-duration="2000" data-aos-easing="linear">
-                        <div class="illustration">
-                            <i class="fa-solid fa-gavel"></i>
-                        </div>
-                        <h1>Edition</h1>
-                        <p>
-                            Ut temporibus aspernatur at sed, saepe blanditiis sunt recusandae, quae, neque iste ratione numquam asperiores? Dignissimos dicta quaerat omnis provident nulla facilis.
-                        </p>
-                        <a href="#">Voir détails &raquo;</a>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </section>
             <section id="albums" class="accueil-albums">

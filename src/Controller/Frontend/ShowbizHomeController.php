@@ -2,6 +2,7 @@
 
 namespace App\Controller\Frontend;
 
+use App\Entity\ShowbizService;
 use App\Entity\ShowbizSlide;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +21,7 @@ class ShowbizHomeController extends AbstractController
     {
         return $this->render('showbiz_home/index.html.twig', [
             'slides' => $managerRegistry->getRepository(ShowbizSlide::class)->findBy(['statut'=>true]),
+	        'services' => $managerRegistry->getRepository(ShowbizService::class)->findAll()
         ]);
     }
 	

@@ -73,12 +73,7 @@
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Services
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="#">Production</a></li>
-                                            <li><a class="dropdown-item" href="#">Scène</a></li>
-                                            <li><a class="dropdown-item" href="#">Brand</a></li>
-                                            <li><a class="dropdown-item" href="#">Edition</a></li>
-                                        </ul>
+                                        {{ render(url('app_showbiz_service_menu')) }}
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#"><span>Label</span></a>

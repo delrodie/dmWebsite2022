@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Backend;
 
 use App\Entity\ShowbizPresentation;
 use App\Form\ShowbizPresentationType;
 use App\Repository\ShowbizPresentationRepository;
 use App\Utilities\GestionMedia;
-use App\Utilities\Utility;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

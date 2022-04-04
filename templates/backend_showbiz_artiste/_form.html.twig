@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+    <div class="row form-group">
+        <div class="col-md-6 mt-3">
+            <div class="col-md-12 mt-3">{{ form_row(form.nom) }}</div>
+            <div class="col-md-12 mt-3">{{ form_row(form.flag) }}</div>
+            <div class="col-md-12 mt-3">{{ form_row(form.genre) }}</div>
+            <div class="col-md-12 mt-3">{{ form_row(form.manager) }}</div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="col-md-12 mt-3">{{ form_row(form.media) }}</div>
+            <div class="col-md-12 mt-3">
+                {% if showbiz_artiste.media %}
+                    <img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ showbiz_artiste.media)) }}" alt="{{ showbiz_artiste.nom }}" class="img-thumbnail" width="200">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-12 mt-3">{{ form_row(form.biographie) }}</div>
+
+        <div class="col-md-6 mt-3">{{ form_row(form.email) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.website) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.youtube) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.facebook) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.instagram) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.twitter) }}</div>
+    </div>
+    <div class="text-right mt-5">
+        {{ form_widget(form) }}
+        <a href="{{ path('app_backend_showbiz_artiste_index') }}" class="btn btn-outline-secondary">Annuler</a>
+        <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+
+{{ form_end(form) }}

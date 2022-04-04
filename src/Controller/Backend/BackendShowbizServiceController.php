@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Backend;
 
 use App\Entity\ShowbizService;
 use App\Form\ShowbizServiceType;
@@ -52,7 +52,7 @@ class BackendShowbizServiceController extends AbstractController
 	        if ($form->get('media')->getData()) $mediaFile = $form->get('media')->getData();
 	        else $mediaFile=null;
 	
-	        $showbizPresentation = $this->gestionMedia->entity($showbizService, 'service', $mediaFile);
+	        $showbizService = $this->gestionMedia->entity($showbizService, 'service', $mediaFile);
 			
             $showbizServiceRepository->add($showbizService);
 	

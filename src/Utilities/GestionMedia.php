@@ -11,22 +11,33 @@
 		private $mediaPresentation;
 		private $mediaSlide;
 		private $mediaService;
+		private $mediaArtiste;
 		
-		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory
+		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory, $artisteDirectory
 		)
 		{
 			$this->mediaPresentation = $presentationDirectory;
 			$this->mediaSlide = $slideDirectory;
 			$this->mediaService = $serviceDirectory;
+			$this->mediaArtiste = $artisteDirectory;
 		}
 		
 		public function entity($entity, $entityName, $mediaFile =  null)
 		{
 			$slugger = new AsciiSlugger();
 			
-			$entity->setSlug($slugger->slug($entity->getTitre()));
-			if ($entityName !== 'slide')
-				$entity->setResume(substr(strip_tags($entity->getContenu()), 0, 155));
+			
+			if ($entityName !== 'slide'){
+				if ($entityName === 'artiste') {
+					$entity->setResume(substr(strip_tags($entity->getBiographie()), 0, 155));
+					$entity->setSlug($slugger->slug($entity->getNom()));
+				}else {
+					$entity->setResume(substr(strip_tags($entity->getContenu()), 0, 155));
+					$entity->setSlug($slugger->slug($entity->getTitre()));
+				}
+			}else{
+				$entity->setSlug($slugger->slug($entity->getTitre()));
+			}
 			
 			// Gestion des medias
 			if ($mediaFile){
@@ -65,6 +76,7 @@
 				if ($media === 'presentation') $file->move($this->mediaPresentation, $newFilename);
 				elseif ($media === 'slide') $file->move($this->mediaSlide, $newFilename);
 				elseif ($media === 'service') $file->move($this->mediaService, $newFilename);
+				elseif ($media === 'artiste') $file->move($this->mediaArtiste, $newFilename);
 				else $file->move($this->mediaPresentation, $newFilename);
 			}catch (FileException $e){
 			
@@ -85,6 +97,7 @@
 			if ($media === 'presentation') unlink($this->mediaPresentation.'/'.$ancienMedia);
 			elseif ($media === 'slide') unlink($this->mediaSlide.'/'.$ancienMedia);
 			elseif ($media === 'service') unlink($this->mediaService.'/'.$ancienMedia);
+			elseif ($media === 'artiste') unlink($this->mediaArtiste.'/'.$ancienMedia);
 			else return false;
 			
 			return true;

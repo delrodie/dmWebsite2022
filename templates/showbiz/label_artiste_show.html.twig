@@ -1,0 +1,140 @@
+{% extends 'base_showbiz.html.twig' %}
+
+{% block title %}Biographie de {{ artiste.nom }}{% endblock %}
+
+
+{% block body %}
+	<main class="page-secondaire">
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="fa-solid fa-house"></i></a></li>
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_home') )}}">Showbiz</a></li>
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_label') )}}">Label</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Artiste</li>
+				</ol>
+			</nav>
+			<div class="row">
+				<div class="col-lg-8 content-principal" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+					<h3>{{ artiste.nom }}</h3>
+					<div  class="portrait">
+						<table class="artiste">
+							<tbody class="informations">
+								<tr class="media">
+									<td colspan="2">
+										<img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" alt="{{ artiste.nom }}" class="img-fluid">
+									</td>
+								</tr>
+								<tr class="nom">
+									<td colspan="2">{{ artiste.nom }}</td>
+								</tr>
+								<tr class="booking">
+									<td colspan="2">Booking</td>
+								</tr>
+								{% if artiste.manager %}
+									<tr class="infos">
+										<th>Manager</th>
+										<td>{{ artiste.manager }}</td>
+									</tr>
+								{% endif %}
+								{% if artiste.email %}
+									<tr class="infos">
+										<th>Email</th>
+										<td>{{ artiste.email }}</td>
+									</tr>
+								{% endif %}
+								<tr class="infos">
+									<th>Genre</th>
+									<td>{{ artiste.genre }}</td>
+								</tr>
+								<tr class="infos">
+									<th>Social</th>
+									<td>
+										{% if artiste.website %}
+											<a href="{{ artiste.website }}" target="_blank"><i class="fa fa-globe-africa"></i></a>
+										{% endif %}
+										{% if artiste.facebook %}
+											<a href="{{ artiste.facebook }}" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+										{% endif %}
+										{% if artiste.instagram %}
+											<a href="{{ artiste.instagram }}" target="_blank"><i class="fa-brands fa-instagram-square"></i></a>
+										{% endif %}
+										{% if artiste.twitter %}
+											<a href="{{ artiste.twitter }}" target="_blank"><i class="fa-brands fa-twitter-square"></i></a>
+										{% endif %}
+										{% if artiste.youtube %}
+											<a href="{{ artiste.youtube }}" target="_blank"><i class="fa-brands fa-youtube-square"></i></a>
+										{% endif %}
+									</td>
+								</tr>
+								{% if albums %}
+									<tr class="albums">
+										<td colspan="2">Albums</td>
+									</tr>
+									<tr class="liste">
+										<td colspan="2">
+											<a href="#">Titre de l'album</a> -
+											<a href="#">Titre de l'album</a> -
+											<a href="#">Titre de l'album</a> -
+											<a href="#">Titre de l'album</a>
+										</td>
+									</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+					{{ artiste.biographie|raw() }}
+					<section id="albums" class="accueil-albums">
+						<h1 class="titre">Les albums de {{ artiste.nom }} dans nos points de vente</h1>
+						<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+							<div class="col">
+								<a href="#">
+									<figure>
+										<img src="{{ asset('build/images/showbiz/album/09.jpg') }}" alt="" class="img-fluid">
+									</figure>
+								</a>
+							</div>
+						</div>
+					</section>
+				</div>
+				{{ render(url('app_showbiz_rubrique_droite')) }}
+			</div>
+
+			{{ render(url('app_showbiz_partenaires')) }}
+		</div>
+
+	</main>
+{% endblock %}
+
+{% block sliders %}
+	{{ render(url('app_showbiz_cover_page')) }}
+{% endblock %}
+
+{% block meta %}
+	<meta name="keywords" content="{{ artiste.nom }}, {{ artiste.genre }}"  />
+	<meta name="description" content="{{ artiste.resume }}" />
+	<meta name="revisit" content="7 days" />
+	<meta name="revisit-after" content="7 days">
+	<meta name="Author" content="Dream Maker, Delrodie AMOIKON">
+	<meta name="Copyright" content="www.dreammaker-ci.com">
+	<meta name="Content-Language" content="FR">
+	<meta name="distribution" content="global" />
+	<meta name="Audience" content="All" />
+	<meta name="Robots" content="full">
+
+	<link rel="canonical" href="{{ absolute_url(path('app_showbiz_label_artiste_show',{'slug': artiste.slug})) }}" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ artiste.nom }}" />
+	<meta property="og:description" content="{{ artiste.resume }}" />
+	<meta property="og:url" content="{{ absolute_url(path('app_showbiz_label_artiste_show',{'slug': artiste.slug})) }}" />
+	<meta property="og:site_name" content="Dream Maker" />
+	<meta property="article:section" content="Item" />
+	<meta property="article:published_time" content="{{ artiste.createdAt|date('Y-m-d H:i:s') }}" />
+	<meta property="og:image" content="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" />
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:description" content="{{ artiste.resume }}"/>
+	<meta name="twitter:title" content="{{ artiste.nom }}"/>
+	<meta name="twitter:domain" content="{{ absolute_url(path('app_showbiz_label_artiste_show',{'slug': artiste.slug})) }}"/>
+	<meta name="twitter:image:src" content="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}"/>
+{% endblock %}

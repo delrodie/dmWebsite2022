@@ -254,16 +254,14 @@ footer{
         }
 
         figure {
+            overflow: hidden;
             img{
-                -webkit-transform: scale(1);
                 transform: scale(1);
-                -webkit-transition: .3ms ease-in-out;
                 transition: .3s ease-in-out;
             }
 
             &:hover img{
                 transform: scale(1.5);
-                -webkit-transform: scale(1.5);
             }
         }
 
@@ -411,6 +409,8 @@ footer.page-secondaire-footer{
 }
 .content-principal{
     margin: 20px auto 100px;
+    padding-right: 50px;
+    text-align: justify;
     h3{
         padding: 10px 0;
         font-size: 1.6rem;
@@ -421,9 +421,83 @@ footer.page-secondaire-footer{
         }
 
     }
+    .portrait{
+        float: left;
+        margin-right: 20px;
+        max-width: 50%;
 
-    img{
-        margin-bottom: 40px;
+        table.artiste{
+            border: solid 1px rgba($blue-color, .5);
+
+            .media{
+                transition: .5s ease-in-out;
+                td{
+                    overflow: hidden;
+                }
+                img{
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                &:hover img{
+                    transform: scale(1.5);
+
+                }
+            }
+
+            .nom{
+                td{
+                    background: $blue-color;
+                    padding: 10px;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+            
+            .booking,
+            .albums{
+                td{
+                    margin: 5px auto;
+                    padding: 10px;
+                    text-align: center;
+                    background: rgba($darkblue-color, .1);
+                    font-weight: bold;
+                }
+            }
+            .infos{
+                th{
+                    padding: 5px 0 7px 10px;
+
+                    &:last-child{
+                        padding-bottom: 15px;
+                    }
+                }
+                td{
+                    padding-right: 10px;
+                }
+                
+                .fa-brands, .fa{
+                    font-size: 1.4rem;
+                    padding: 0 3px;
+                }
+            }
+
+            .liste{
+
+                td{
+                    position: relative;
+                    text-align: left;
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                a{
+                    display: inline;
+                    text-decoration: none;
+                    padding-top:10px;
+                }
+            }
+        }
     }
 }
 .following{

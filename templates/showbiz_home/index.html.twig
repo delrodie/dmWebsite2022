@@ -72,55 +72,27 @@
                 </div>
             </section>
 
-            <section id="artistes" class="accueil-artistes">
-                <h1 class="titre">Nos artistes</h1>
-                <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+            {% if artistes %}
+                <section id="artistes" class="accueil-artistes">
+                    <h1 class="titre">Nos artistes</h1>
+                    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
 
-                    <div class="col">
-                        <a href="#">
-                            <div class="card">
-                                <img src="{{ asset('build/images/artistes/01.jpg') }}" alt="" class="img-fluid">
-                                <div class="nom-artiste-overlay">
-                                    <h4 class="">Alpha Blondy</h4>
-                                </div>
+                        {% for artiste in artistes|slice(0,4) %}
+                            <div class="col">
+                                <a href="{{ absolute_url(path('app_showbiz_label_artiste_show', {'slug': artiste.slug})) }}">
+                                    <div class="card">
+                                        <img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" alt="{{ artiste.nom }}" class="img-fluid">
+                                        <div class="nom-artiste-overlay">
+                                            <h4 class="">{{ artiste.nom }}</h4>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
+                        {% endfor %}
 
-                    <div class="col">
-                        <a href="#">
-                            <div class="card">
-                                <img src="{{ asset('build/images/artistes/02.jpg') }}" alt="" class="img-fluid">
-                                <div class="nom-artiste-overlay">
-                                    <h4 class="">Tiken Jah</h4>
-                                </div>
-                            </div>
-                        </a>
                     </div>
-
-                    <div class="col">
-                        <a href="#">
-                            <div class="card">
-                                <img src="{{ asset('build/images/artistes/03.jpg') }}" alt="" class="img-fluid">
-                                <div class="nom-artiste-overlay">
-                                    <h4 class="">Magic System</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col">
-                        <a href="#">
-                            <div class="card">
-                                <img src="{{ asset('build/images/artistes/04.jpeg') }}" alt="" class="img-fluid">
-                                <div class="nom-artiste-overlay">
-                                    <h4 class="">Fally Ipupa</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            {% endif %}
             {{ render(url('app_showbiz_partenaires')) }}
         </div>
     </main>

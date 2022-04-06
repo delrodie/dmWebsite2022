@@ -1,0 +1,89 @@
+{% extends 'base_showbiz.html.twig' %}
+
+{% block title %}Ecurie d'artistes du label Dream Maker{% endblock %}
+
+{% block body %}
+	<main class="page-secondaire">
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="fa-solid fa-house"></i></a></li>
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_home') )}}">Showbiz</a></li>
+					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_label') )}}">Label</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Artiste</li>
+				</ol>
+			</nav>
+			<section id="artistes" class="accueil-artistes">
+				<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+
+					{% for artiste in artistes|slice(0,4) %}
+						<div class="col" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-up' }}" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+							<a href="{{ absolute_url(path('app_showbiz_label_artiste_show', {'slug': artiste.slug})) }}">
+								<div class="card">
+									<img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" alt="{{ artiste.nom }}" class="img-fluid">
+									<div class="nom-artiste-overlay">
+										<h4 class="">{{ artiste.nom }}</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+
+				</div>
+				<div class="row mt-5">
+					<div class="col-12">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link">Précédent</a>
+								</li>
+								<li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Suivant</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</section>
+
+			{{ render(url('app_showbiz_partenaires')) }}
+		</div>
+
+	</main>
+{% endblock %}
+
+{% block sliders %}
+	{{ render(url('app_showbiz_cover_page')) }}
+{% endblock %}
+
+{% block meta %}
+	<meta name="keywords" content="artiste, showbiz, burida, mega stars"  />
+	<meta name="description" content="Meilleure entreprise du showbiz ivoirien disposant dans son label et distribuant plus de 250 artistes nationaux et internationaux" />
+	<meta name="revisit" content="7 days" />
+	<meta name="revisit-after" content="7 days">
+	<meta name="Author" content="Dream Maker, Delrodie AMOIKON">
+	<meta name="Copyright" content="www.dreammaker-ci.com">
+	<meta name="Content-Language" content="FR">
+	<meta name="distribution" content="global" />
+	<meta name="Audience" content="All" />
+	<meta name="Robots" content="full">
+
+	<link rel="canonical" href="{{ absolute_url(path('app_showbiz_label')) }}" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Ecurie d'artistes du label de Dream Maker" />
+	<meta property="og:description" content="Meilleure entreprise du showbiz ivoirien disposant dans son label et distribuant plus de 250 artistes nationaux et internationaux" />
+	<meta property="og:url" content="{{ absolute_url(path('app_showbiz_label')) }}" />
+	<meta property="og:site_name" content="Dream Maker" />
+	<meta property="article:section" content="Item" />
+	<meta property="article:published_time" content="2022-04-01T00:00:59" />
+	<meta property="og:image" content="{{ absolute_url(asset('build/images/logo.png')) }}" />
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:description" content="Meilleure entreprise du showbiz ivoirien disposant dans son label et distribuant plus de 250 artistes nationaux et internationaux"/>
+	<meta name="twitter:title" content="Ecurie d'artistes du label de Dream Maker"/>
+	<meta name="twitter:domain" content="{{ absolute_url(path('app_showbiz_label')) }}"/>
+	<meta name="twitter:image:src" content="{{ absolute_url(asset('build/images/logo.png')) }}"/>
+{% endblock %}

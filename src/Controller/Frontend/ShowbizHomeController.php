@@ -2,6 +2,7 @@
 
 namespace App\Controller\Frontend;
 
+use App\Entity\ShowbizArtiste;
 use App\Entity\ShowbizService;
 use App\Entity\ShowbizSlide;
 use Doctrine\Persistence\ManagerRegistry;
@@ -21,7 +22,8 @@ class ShowbizHomeController extends AbstractController
     {
         return $this->render('showbiz_home/index.html.twig', [
             'slides' => $managerRegistry->getRepository(ShowbizSlide::class)->findBy(['statut'=>true]),
-	        'services' => $managerRegistry->getRepository(ShowbizService::class)->findAll()
+	        'services' => $managerRegistry->getRepository(ShowbizService::class)->findAll(),
+	        'artistes' => $managerRegistry->getRepository(ShowbizArtiste::class)->findBy([],['flag'=>"DESC"])
         ]);
     }
 	
@@ -39,5 +41,13 @@ class ShowbizHomeController extends AbstractController
 	public function rubrique()
 	{
 		return $this->render('showbiz_home/rubrique_droite.html.twig');
+	}
+	
+	/**
+	 * @Route("/cover/page/secondaire", name="app_showbiz_cover_page")
+	 */
+	public function cover()
+	{
+		return $this->render('showbiz_home/cover.html.twig');
 	}
 }

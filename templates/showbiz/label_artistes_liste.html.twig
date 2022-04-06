@@ -13,10 +13,107 @@
 					<li class="breadcrumb-item active" aria-current="page">Artiste</li>
 				</ol>
 			</nav>
+			<div class="row my-5">
+				<div class="col-12">
+					<div class="btn-group">
+						<a href="{{ absolute_url(path('app_showbiz_label') )}}" class="btn btn-outline-primary active">Liste des artistes</a>
+						<a href="#" class="btn btn-outline-primary">Liste des albums</a>
+					</div>
+				</div>
+			</div>
+			<div class="row my-5">
+				<div class="col-12 text-center">
+					<form action="{{ path('app_showbiz_label') }}" onclick="submit()">
+						<div class="btn-group-sm" role="group" aria-label="Basic radio toggle button group"data-aos="fade-down" data-aos-duration="3000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+							<label for="">Filtrer la liste </label>
+							<input type="radio" class="btn-check" name="" id="btnA" autocomplete="off" value="">
+							<label class="btn btn-outline-primary" for="btnA">Tout</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnA" autocomplete="off" value="A">
+							<label class="btn btn-outline-primary" for="btnA">A</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnB" autocomplete="off" value="B">
+							<label class="btn btn-outline-primary" for="btnB">B</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnC" autocomplete="off" value="C">
+							<label class="btn btn-outline-primary" for="btnC">C</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnD" autocomplete="off" value="D">
+							<label class="btn btn-outline-primary" for="btnC">D</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnE" autocomplete="off" value="E">
+							<label class="btn btn-outline-primary" for="btnE">E</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnF" autocomplete="off" value="F">
+							<label class="btn btn-outline-primary" for="btnF">F</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnG" autocomplete="off" value="G">
+							<label class="btn btn-outline-primary" for="btnG">G</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnH" autocomplete="off" value="H">
+							<label class="btn btn-outline-primary" for="btnH">H</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnI" autocomplete="off" value="I">
+							<label class="btn btn-outline-primary" for="btnI">I</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnJ" autocomplete="off" value="J">
+							<label class="btn btn-outline-primary" for="btnJ">J</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnK" autocomplete="off" value="K">
+							<label class="btn btn-outline-primary" for="btnK">K</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnL" autocomplete="off" value="L">
+							<label class="btn btn-outline-primary" for="btnL">L</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnM" autocomplete="off" value="M">
+							<label class="btn btn-outline-primary" for="btnM">M</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnN" autocomplete="off" value="N">
+							<label class="btn btn-outline-primary" for="btnN">N</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnO" autocomplete="off" value="O">
+							<label class="btn btn-outline-primary" for="btnO">O</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnP" autocomplete="off" value="P">
+							<label class="btn btn-outline-primary" for="btnP">P</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnQ" autocomplete="off" value="Q">
+							<label class="btn btn-outline-primary" for="btnQ">Q</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnR" autocomplete="off" value="R">
+							<label class="btn btn-outline-primary" for="btnR">R</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnC" autocomplete="off" value="S">
+							<label class="btn btn-outline-primary" for="btnS">S</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnC" autocomplete="off" value="T">
+							<label class="btn btn-outline-primary" for="btnT">T</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnC" autocomplete="off" value="U">
+							<label class="btn btn-outline-primary" for="btnU">U</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnV" autocomplete="off" value="V">
+							<label class="btn btn-outline-primary" for="btnV">V</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnW" autocomplete="off" value="W">
+							<label class="btn btn-outline-primary" for="btnW">W</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnX" autocomplete="off" value="X">
+							<label class="btn btn-outline-primary" for="btnX">C</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnY" autocomplete="off" value="Y">
+							<label class="btn btn-outline-primary" for="btnY">Y</label>
+
+							<input type="radio" class="btn-check" name="btnfiltre" id="btnZ" autocomplete="off" value="Z">
+							<label class="btn btn-outline-primary" for="btnZ">Z</label>
+						</div>
+					</form>
+				</div>
+			</div>
 			<section id="artistes" class="accueil-artistes">
 				<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
 
-					{% for artiste in artistes|slice(0,4) %}
+					{% for artiste in artistes %}
 						<div class="col" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-up' }}" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
 							<a href="{{ absolute_url(path('app_showbiz_label_artiste_show', {'slug': artiste.slug})) }}">
 								<div class="card">
@@ -27,24 +124,16 @@
 								</div>
 							</a>
 						</div>
+					{% else %}
+						<div class="col-12 text-center text-danger">
+							<h4><em>Au résultat</em></h4>
+						</div>
 					{% endfor %}
 
 				</div>
-				<div class="row mt-5">
-					<div class="col-12">
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link">Précédent</a>
-								</li>
-								<li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item">
-									<a class="page-link" href="#">Suivant</a>
-								</li>
-							</ul>
-						</nav>
+				<div class="row mt-5 justify-content-center text-center">
+					<div class="col-12 justify-content-center">
+						{{ knp_pagination_render(artistes) }}
 					</div>
 				</div>
 			</section>

@@ -362,6 +362,15 @@ footer{
 
     .logo{
         display: inline;
+        img{
+            filter: grayscale(100%);
+            transition: .3S ease-in-out;
+            cursor: pointer;
+        }
+
+        &:hover img{
+            filter: grayscale(0);
+        }
     }   
 
 

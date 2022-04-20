@@ -19,7 +19,12 @@
     .content-principal{
         .portrait{
             width: 100%;
+            min-width: 100%;
             float: none;
+            margin-bottom: 20px;
+        }
+        .informations-album{
+            font-size: 1rem;
         }
     }
 }

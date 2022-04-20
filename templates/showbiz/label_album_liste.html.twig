@@ -1,6 +1,6 @@
 {% extends 'base_showbiz.html.twig' %}
 
-{% block title %}Ecurie d'artistes du label Dream Maker{% endblock %}
+{% block title %}Liste des albums distribués{% endblock %}
 
 {% block body %}
 	<main class="page-secondaire">
@@ -10,20 +10,20 @@
 					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="fa-solid fa-house"></i></a></li>
 					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_home') )}}">Showbiz</a></li>
 					<li class="breadcrumb-item"><a href="{{ absolute_url(path('app_showbiz_label') )}}">Label</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Artiste</li>
+					<li class="breadcrumb-item active" aria-current="page">Album</li>
 				</ol>
 			</nav>
 			<div class="row my-5">
 				<div class="col-12">
 					<div class="btn-group">
 						<a href="{{ absolute_url(path('app_showbiz_label') )}}" class="btn btn-outline-primary active">Liste des artistes</a>
-						<a href="{{ absolute_url(path('app_showbiz_album')) }}" class="btn btn-outline-primary">Liste des albums</a>
+						<a href="{{ absolute_url(path('app_showbiz_album') )}}" class="btn btn-outline-primary">Liste des albums</a>
 					</div>
 				</div>
 			</div>
 			<div class="row my-5">
 				<div class="col-12 text-center">
-					<form action="{{ path('app_showbiz_label') }}" onclick="submit()">
+					<form action="{{ absolute_url(path('app_showbiz_album')) }}" onclick="submit()">
 						<div class="btn-group-sm" role="group" aria-label="Basic radio toggle button group"data-aos="fade-down" data-aos-duration="3000" data-aos-offset="300" data-aos-easing="ease-in-sine">
 							<label for="">Filtrer la liste </label>
 							<input type="radio" class="btn-check" name="" id="btnA" autocomplete="off" value="">
@@ -110,18 +110,15 @@
 					</form>
 				</div>
 			</div>
-			<section id="artistes" class="accueil-artistes">
+			<section id="albums" class="accueil-albums">
 				<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
 
-					{% for artiste in artistes %}
+					{% for album in albums %}
 						<div class="col" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-up' }}" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-							<a href="{{ absolute_url(path('app_showbiz_label_artiste_show', {'slug': artiste.slug})) }}">
-								<div class="card">
-									<img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" alt="{{ artiste.nom }}" class="img-fluid">
-									<div class="nom-artiste-overlay">
-										<h4 class="">{{ artiste.nom }}</h4>
-									</div>
-								</div>
+							<a href="{{ path('app_showbiz_album_show', {'slug': album.slug}) }}">
+								<figure>
+									<img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ album.media)) }}" alt="{{ album.titre}}" class="img-fluid">
+								</figure>
 							</a>
 						</div>
 					{% else %}
@@ -133,7 +130,7 @@
 				</div>
 				<div class="row mt-5 justify-content-center text-center">
 					<div class="col-12 justify-content-center">
-						{{ knp_pagination_render(artistes) }}
+						{{ knp_pagination_render(albums) }}
 					</div>
 				</div>
 			</section>
@@ -160,12 +157,12 @@
 	<meta name="Audience" content="All" />
 	<meta name="Robots" content="full">
 
-	<link rel="canonical" href="{{ absolute_url(path('app_showbiz_label')) }}" />
+	<link rel="canonical" href="{{ absolute_url(path('app_showbiz_album')) }}" />
 	<meta property="og:locale" content="fr_FR" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Ecurie d'artistes du label de Dream Maker" />
 	<meta property="og:description" content="Meilleure entreprise du showbiz ivoirien disposant dans son label et distribuant plus de 250 artistes nationaux et internationaux" />
-	<meta property="og:url" content="{{ absolute_url(path('app_showbiz_label')) }}" />
+	<meta property="og:url" content="{{ absolute_url(path('app_showbiz_album')) }}" />
 	<meta property="og:site_name" content="Dream Maker" />
 	<meta property="article:section" content="Item" />
 	<meta property="article:published_time" content="2022-04-01T00:00:59" />
@@ -173,6 +170,6 @@
 	<meta name="twitter:card" content="summary"/>
 	<meta name="twitter:description" content="Meilleure entreprise du showbiz ivoirien disposant dans son label et distribuant plus de 250 artistes nationaux et internationaux"/>
 	<meta name="twitter:title" content="Ecurie d'artistes du label de Dream Maker"/>
-	<meta name="twitter:domain" content="{{ absolute_url(path('app_showbiz_label')) }}"/>
+	<meta name="twitter:domain" content="{{ absolute_url(path('app_showbiz_album')) }}"/>
 	<meta name="twitter:image:src" content="{{ absolute_url(asset('build/images/logo.png')) }}"/>
 {% endblock %}

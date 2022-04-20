@@ -2,9 +2,11 @@
 
 namespace App\Controller\Frontend;
 
+use App\Entity\ShowbizAlbum;
 use App\Entity\ShowbizArtiste;
 use App\Entity\ShowbizService;
 use App\Entity\ShowbizSlide;
+use App\Repository\ShowbizAlbumRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +25,8 @@ class ShowbizHomeController extends AbstractController
         return $this->render('showbiz_home/index.html.twig', [
             'slides' => $managerRegistry->getRepository(ShowbizSlide::class)->findBy(['statut'=>true]),
 	        'services' => $managerRegistry->getRepository(ShowbizService::class)->findAll(),
-	        'artistes' => $managerRegistry->getRepository(ShowbizArtiste::class)->findBy([],['flag'=>"DESC"])
+	        'artistes' => $managerRegistry->getRepository(ShowbizArtiste::class)->findBy([],['flag'=>"DESC"]),
+	        'albums' => $managerRegistry->getRepository(ShowbizAlbum::class)->findListOrderByFlagArtiste(),
         ]);
     }
 	

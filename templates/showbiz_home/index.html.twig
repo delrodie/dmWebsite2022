@@ -38,39 +38,23 @@
 
                 </div>
             </section>
-            <section id="albums" class="accueil-albums">
-                <h1 class="titre">Dans nos points de ventes</h1>
-                <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <div class="col">
-                        <a href="#">
-                            <figure>
-                                <img src="{{ asset('build/images/showbiz/album/09.jpg') }}" alt="" class="img-fluid">
-                            </figure>
-                        </a>
+            {% if albums %}
+                <section id="albums" class="accueil-albums">
+                    <h1 class="titre">Dans nos points de ventes</h1>
+                    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        {% for album in albums|slice(0,4) %}
+                            <div class="col">
+                                <a href="#">
+                                    <figure>
+                                        <img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ album.media)) }}" alt="{{ album.titre}}" class="img-fluid">
+                                    </figure>
+                                </a>
+                            </div>
+                        {% endfor %}
+
                     </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure>
-                                <img src="{{ asset('build/images/showbiz/album/10.jpg') }}" alt="" class="img-fluid">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure>
-                                <img src="{{ asset('build/images/showbiz/album/11.jpg') }}" alt="" class="img-fluid">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure>
-                                <img src="{{ asset('build/images/showbiz/album/05.jpg') }}" alt="" class="img-fluid">
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            {% endif %}
 
             {% if artistes %}
                 <section id="artistes" class="accueil-artistes">

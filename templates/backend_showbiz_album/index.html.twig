@@ -1,22 +1,19 @@
 {% extends 'backend_layout.html.twig' %}
 
-{% block title %}{{ parent() }} Gestion des artistes{% endblock %}
+{% block title %}{{ parent() }} Gestion des albums{% endblock %}
 
 {% block body %}
-    {{ include('backend/entete.html.twig',{'rubrique': 'artiste'}) }}
+    {{ include('backend/entete.html.twig',{'rubrique': 'album'}) }}
     <div class="row">
         <div class="col text-right">
-            <a href="{{ path('app_backend_showbiz_album_index') }}" class="btn btn-outline-success">
-                <i class="fa fa-folder-open"></i> Liste des albums
-            </a>
-            <a href="{{ path('app_backend_showbiz_artiste_new') }}" class="btn btn-outline-primary">
+            <a href="{{ path('app_backend_showbiz_album_new') }}" class="btn btn-outline-primary">
                 <i class="fa fa-plus-circle"></i> Ajouter
             </a>
         </div>
 
     </div>
     <div class="component-section no-code">
-        <h5 id="section1" class="tx-semibold">artiste</h5>
+        <h5 id="section1" class="tx-semibold">album</h5>
         <p class="mg-b-25"></p>
         {% for label, messages in app.flashes %}
             {% for message in messages %}
@@ -33,29 +30,25 @@
             <thead>
             <tr>
                 <th class="wd-5p text-center">#</th>
-                <th class="wd-15p text-center">MEDIA</th>
-                <th class="wd-20p text-center">NOM</th>
-                <th class="wd-50p text-center">RESUME</th>
-                <th class="wd-10p text-center">PRODUITS</th>
+                <th class="wd-35p text-center">ARTISTE</th>
+                <th class="wd-40p text-center">TITRE</th>
+                <th class="wd-20p text-center">TYPE</th>
             </tr>
             </thead>
             <tbody>
-            {% for artiste in showbiz_artistes %}
-                <tr class="justify-content-center align-items-center align-content-center">
+            {% for album in showbiz_albums %}
+                <tr>
                     <td>{{ loop.index }}</td>
                     <td class="text-center">
-                        <img src="{{ absolute_url(asset('upload/showbiz/label/artistes/'~ artiste.media)) }}" alt="" class="img-fluid rounded-circle" width="75">
+                        <img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ album.media)) }}" alt="" class="img-fluid rounded-circle" width="75">
                     </td>
                     <td>
-                        <a href="#artiste{{ artiste.id }}" data-toggle="modal">{{ artiste.nom }}</a>
+                        <a href="#album{{ album.id }}" data-toggle="modal">{{ album.artiste.nom }}</a>
                     </td>
-                    <td>{{ artiste.resume|raw }}</td>
-                    <td class="text-center ">
-                        <a href="#"><i class="fa fa-list"></i></a> | <a href="#"><i class="fa fa-folder-plus"></i></a>
-                    </td>
+                    <td>{{ album.type }}</td>
                 </tr>
-                <div class="modal fade" id="artiste{{ artiste.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
-                    {{ render(url('app_backend_showbiz_artiste_show',{'id': artiste.id})) }}
+                <div class="modal fade" id="album{{ album.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                    {{ render(url('app_backend_showbiz_album_show',{'id': album.id})) }}
                 </div>
             {% endfor %}
             </tbody>

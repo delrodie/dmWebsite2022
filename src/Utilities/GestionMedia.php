@@ -12,14 +12,16 @@
 		private $mediaSlide;
 		private $mediaService;
 		private $mediaArtiste;
+		private $mediaAlbum;
 		
-		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory, $artisteDirectory
+		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory, $artisteDirectory, $albumDirectory
 		)
 		{
 			$this->mediaPresentation = $presentationDirectory;
 			$this->mediaSlide = $slideDirectory;
 			$this->mediaService = $serviceDirectory;
 			$this->mediaArtiste = $artisteDirectory;
+			$this->mediaAlbum = $albumDirectory;
 		}
 		
 		public function entity($entity, $entityName, $mediaFile =  null)
@@ -77,6 +79,7 @@
 				elseif ($media === 'slide') $file->move($this->mediaSlide, $newFilename);
 				elseif ($media === 'service') $file->move($this->mediaService, $newFilename);
 				elseif ($media === 'artiste') $file->move($this->mediaArtiste, $newFilename);
+				elseif ($media === 'album') $file->move($this->mediaAlbum, $newFilename);
 				else $file->move($this->mediaPresentation, $newFilename);
 			}catch (FileException $e){
 			
@@ -98,6 +101,7 @@
 			elseif ($media === 'slide') unlink($this->mediaSlide.'/'.$ancienMedia);
 			elseif ($media === 'service') unlink($this->mediaService.'/'.$ancienMedia);
 			elseif ($media === 'artiste') unlink($this->mediaArtiste.'/'.$ancienMedia);
+			elseif ($media === 'album') unlink($this->mediaAlbum.'/'.$ancienMedia);
 			else return false;
 			
 			return true;

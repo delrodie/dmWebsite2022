@@ -1,0 +1,36 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel4">{{ showbiz_album.artiste.nom }} : {{ showbiz_album.titre }}</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i data-feather="x"></i></span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col">
+                    <p class="mt-3">
+                        <img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ showbiz_album.media)) }}" alt="{{ showbiz_album.titre }}" class="img-thumbnail" width="300" style="float: left; margin-right: 20px;">
+                        {{ showbiz_album.contenu|raw }}
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-4">Type: <strong>{{showbiz_album.type }}</strong></div>
+                <div class="col-4">Mode: <strong>{{ showbiz_album.mode }}</strong></div>
+                <div class="col-4">Pistes: <strong>{{ showbiz_album.piste }}</strong></div>
+                <div class="col-4 mt-3">Producteur: <strong>{{ showbiz_album.producteur}}</strong></div>
+                <div class="col-4 mt-3">Compositeur: <strong>{{ showbiz_album.compositeur}}</strong></div>
+                <div class="col-4 mt-3">Arrangeur: <strong>{{ showbiz_album.arrangeur}}</strong></div>
+                <div class="col-4 mt-3">Choeurs: <strong>{{ showbiz_album.choeurs}}</strong></div>
+                <div class="col-4 mt-3">Mixage: <strong>{{ showbiz_album.mixage }}</strong></div>
+                <div class="col-4 mt-3">Masteur: <strong>{{ showbiz_album.master}}</strong></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            {{ include('backend_showbiz_album/_delete_form.html.twig') }}
+            <a href="{{ path('app_backend_showbiz_album_edit', {'id': showbiz_album.id}) }}" class="btn btn-primary"> Modifier</a>
+        </div>
+    </div>
+</div>

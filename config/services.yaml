@@ -29,3 +29,4 @@ services:
             $slideDirectory: '%kernel.project_dir%/public/upload/showbiz/slides'
             $serviceDirectory: '%kernel.project_dir%/public/upload/showbiz/services'
             $artisteDirectory: '%kernel.project_dir%/public/upload/showbiz/label/artistes'
+            $albumDirectory: '%kernel.project_dir%/public/upload/showbiz/label/albums'

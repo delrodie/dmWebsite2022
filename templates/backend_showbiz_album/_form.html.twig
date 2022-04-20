@@ -1,0 +1,37 @@
+{{ form_start(form) }}
+    <div class="row form-group">
+        <div class="col-md-6 mt-3">{{ form_row(form.artiste) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.titre) }}</div>
+        <div class="col-md-4 mt-3">{{ form_row(form.type) }}</div>
+        <div class="col-md-4 mt-3">{{ form_row(form.mode) }}</div>
+        <div class="col-md-4 mt-3">{{ form_row(form.piste) }}</div>
+        <div class="col-md-12 mt-3">{{ form_row(form.contenu) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.producteur) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.compositeur) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.arrangeur) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.choeurs) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.mixage) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.master) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.spotify) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.deezer) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.itunes) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.amazon) }}</div>
+        <div class="col-md-6 mt-3">{{ form_row(form.youtube) }}</div>
+        <div class="col-md-12 mt-3">
+            <div class="row">
+                <div class="col-md-6 mt-3">{{ form_row(form.media) }}</div>
+                <div class="col-md-6 mt-3">
+                    {% if showbiz_album.media %}
+                        <img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ showbiz_album.media)) }}" alt="{{ showbiz_album.titre }}" class="img-thumbnail" width="200">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="text-right mt-5">
+    {{ form_widget(form) }}
+    <a href="{{ path('app_backend_showbiz_album_index') }}" class="btn btn-outline-secondary">Annuler</a>
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+</div>
+
+{{ form_end(form) }}

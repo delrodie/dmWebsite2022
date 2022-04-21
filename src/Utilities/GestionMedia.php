@@ -13,8 +13,10 @@
 		private $mediaService;
 		private $mediaArtiste;
 		private $mediaAlbum;
+		private $mediaPublicite;
 		
-		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory, $artisteDirectory, $albumDirectory
+		public function __construct($presentationDirectory, $slideDirectory, $serviceDirectory, $artisteDirectory, $albumDirectory,
+			$publiciteDirectory
 		)
 		{
 			$this->mediaPresentation = $presentationDirectory;
@@ -22,6 +24,7 @@
 			$this->mediaService = $serviceDirectory;
 			$this->mediaArtiste = $artisteDirectory;
 			$this->mediaAlbum = $albumDirectory;
+			$this->mediaPublicite = $publiciteDirectory;
 		}
 		
 		public function entity($entity, $entityName, $mediaFile =  null)
@@ -32,13 +35,15 @@
 			if ($entityName !== 'slide'){
 				if ($entityName === 'artiste') {
 					$entity->setResume(substr(strip_tags($entity->getBiographie()), 0, 155));
-					$entity->setSlug($slugger->slug($entity->getNom()));
-				}else {
+					$entity->setSlug($slugger->slug(strtolower($entity->getNom())));
+				}elseif($entityName !== 'publicite') {
 					$entity->setResume(substr(strip_tags($entity->getContenu()), 0, 155));
-					$entity->setSlug($slugger->slug($entity->getTitre()));
+					$entity->setSlug($slugger->slug(strtolower($entity->getTitre())));
+				}else{
+					$entity->setSlug($slugger->slug(strtolower($entity->getTitre())));
 				}
 			}else{
-				$entity->setSlug($slugger->slug($entity->getTitre()));
+				$entity->setSlug($slugger->slug(strtolower($entity->getTitre())));
 			}
 			
 			// Gestion des medias
@@ -80,6 +85,7 @@
 				elseif ($media === 'service') $file->move($this->mediaService, $newFilename);
 				elseif ($media === 'artiste') $file->move($this->mediaArtiste, $newFilename);
 				elseif ($media === 'album') $file->move($this->mediaAlbum, $newFilename);
+				elseif ($media === 'publicite') $file->move($this->mediaPublicite, $newFilename);
 				else $file->move($this->mediaPresentation, $newFilename);
 			}catch (FileException $e){
 			
@@ -102,6 +108,7 @@
 			elseif ($media === 'service') unlink($this->mediaService.'/'.$ancienMedia);
 			elseif ($media === 'artiste') unlink($this->mediaArtiste.'/'.$ancienMedia);
 			elseif ($media === 'album') unlink($this->mediaAlbum.'/'.$ancienMedia);
+			elseif ($media === 'publicite') unlink($this->mediaPublicite.'/'.$ancienMedia);
 			else return false;
 			
 			return true;

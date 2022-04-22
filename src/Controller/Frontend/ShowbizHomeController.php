@@ -4,6 +4,7 @@ namespace App\Controller\Frontend;
 
 use App\Entity\ShowbizAlbum;
 use App\Entity\ShowbizArtiste;
+use App\Entity\ShowbizPublicite;
 use App\Entity\ShowbizService;
 use App\Entity\ShowbizSlide;
 use App\Repository\ShowbizAlbumRepository;
@@ -27,6 +28,7 @@ class ShowbizHomeController extends AbstractController
 	        'services' => $managerRegistry->getRepository(ShowbizService::class)->findAll(),
 	        'artistes' => $managerRegistry->getRepository(ShowbizArtiste::class)->findBy([],['flag'=>"DESC"]),
 	        'albums' => $managerRegistry->getRepository(ShowbizAlbum::class)->findListOrderByFlagArtiste(),
+	        'publicite' => $managerRegistry->getRepository(ShowbizPublicite::class)->findOneBy(['statut' => true],['id'=>'DESC'])
         ]);
     }
 	

@@ -2,12 +2,12 @@
   "entrypoints": {
     "dreammaker": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ar-5de6b2.js",
-        "/build/dreammaker.js"
+        "/build/runtime.53a95366.js",
+        "/build/778.d334087a.js",
+        "/build/dreammaker.f2a4669b.js"
       ],
       "css": [
-        "/build/dreammaker.css"
+        "/build/dreammaker.d576614d.css"
       ]
     }
   }

@@ -3,6 +3,7 @@
 	namespace App\Controller\Frontend;
 	
 	use App\Entity\ShowbizArtiste;
+	use App\Repository\ShowbizAlbumRepository;
 	use App\Repository\ShowbizArtisteRepository;
 	use Container3SlcJnZ\PaginatorInterface_82dac15;
 	use Doctrine\Persistence\ManagerRegistry;
@@ -50,11 +51,11 @@
 		/**
 		 * @Route("/{slug}", name="app_showbiz_label_artiste_show", methods={"GET"})
 		 */
-		public function artiste(ShowbizArtiste $artiste): Response
+		public function artiste(ShowbizArtiste $artiste, ShowbizAlbumRepository $albumRepository): Response
 		{
 			return $this->render('showbiz/label_artiste_show.html.twig',[
 				'artiste' => $artiste,
-				'albums' => true
+				'albums' => $albumRepository->findBy(['artiste'=>$artiste->getId()])
 			]);
 		}
 	}

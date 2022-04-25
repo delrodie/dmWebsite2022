@@ -73,10 +73,9 @@
 									</tr>
 									<tr class="liste">
 										<td colspan="2">
-											<a href="#">Titre de l'album</a> -
-											<a href="#">Titre de l'album</a> -
-											<a href="#">Titre de l'album</a> -
-											<a href="#">Titre de l'album</a>
+											{% for album in albums %}
+												<a href="{{ absolute_url(path('app_showbiz_album_show', {'slug': album.slug}) )}}">{{ album.titre }}</a> -
+											{% endfor %}
 										</td>
 									</tr>
 								{% endif %}
@@ -84,18 +83,22 @@
 						</table>
 					</div>
 					{{ artiste.biographie|raw() }}
-					<section id="albums" class="accueil-albums">
-						<h1 class="titre">Les albums de {{ artiste.nom }} dans nos points de vente</h1>
-						<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
-							<div class="col">
-								<a href="#">
-									<figure>
-										<img src="{{ asset('build/images/showbiz/album/09.jpg') }}" alt="" class="img-fluid">
-									</figure>
-								</a>
+					{% if albums %}
+						<section id="albums" class="accueil-albums">
+							<h1 class="titre">Les albums de {{ artiste.nom }} dans nos points de vente</h1>
+							<div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
+								{% for album in albums %}
+									<div class="col">
+										<a href="#">
+											<figure>
+												<img src="{{ absolute_url(asset('upload/showbiz/label/albums/'~ album.media)) }}" alt="{{ album.titre}}" class="img-fluid">
+											</figure>
+										</a>
+									</div>
+								{% endfor %}
 							</div>
-						</div>
-					</section>
+						</section>
+					{% endif %}
 				</div>
 				{{ render(url('app_showbiz_rubrique_droite')) }}
 			</div>

@@ -81,6 +81,7 @@ class ShowbizArtisteRepository extends ServiceEntityRepository
 			->getQuery()->getResult()
 			;
 	}
+	
 
     // /**
     //  * @return ShowbizArtiste[] Returns an array of ShowbizArtiste objects

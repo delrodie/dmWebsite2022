@@ -33,7 +33,7 @@
                                 {% endif %}
                             </div>
                             <h1>{{ service.titre }}</h1>
-                            <p>{{ service.resume }}...</p>
+                            <p>{{ service.resume|raw }}...</p>
                             <a href="{{ path('app_showbiz_service_show', {'slug': service.slug}) }}">Voir détails &raquo;</a>
                         </div>
                     {% endfor %}

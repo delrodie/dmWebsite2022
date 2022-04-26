@@ -18,11 +18,11 @@
                         <div class="col" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-left' }}" data-aos-duration="2000" data-aos-offset="300" data-aos-easing="ease-in-sine">
                             <div class="illustration">
                                 {% if not service.media %}
-                                    {% if service.slug == 'Production' %}
+                                    {% if service.slug == 'la-production' %}
                                         <i class="fa-solid fa-gears"></i>
-                                    {% elseif service.slug == 'Scene' %}
+                                    {% elseif service.slug == 'la-scene' %}
                                         <i class="fa-solid fa-music"></i>
-                                    {% elseif service.slug == 'Brand' %}
+                                    {% elseif service.slug == 'le-branding' %}
                                         <i class="fa-solid fa-address-card"></i>
                                     {% else %}
                                         <i class="fa-solid fa-gavel"></i>

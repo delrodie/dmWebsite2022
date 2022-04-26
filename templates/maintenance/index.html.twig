@@ -1,0 +1,19 @@
+{% extends 'error_layout.html.twig' %}
+{% block title %}Rubrique en maintenance{% endblock %}
+{% block body %}
+    <main class="px-3 align-middle">
+        <div class="align-middle slogan">
+            <h1>
+                <div>Maintenance, </div>
+                <div><span>rubrique en rédaction... </span></div>
+            </h1>
+        </div>
+        <div>
+            <h4>OUPS!!!!</h4>
+            <h6>
+                <em>La rubrique que vous cherchez à acceder est en construction. </em> <br>
+                <em>Nous vous invitons a visité la rubrique <a href="{{ absolute_url(path('app_showbiz_home')) }}">SHOWBIZ</a> en attendant.</em>
+            </h6>
+        </div>
+    </main>
+{% endblock %}

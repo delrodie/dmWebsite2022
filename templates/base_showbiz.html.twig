@@ -40,8 +40,8 @@
                         <div class="row entete-lien align-items-center">
                             <div class="col-12 d-flex justify-content-lg-between align-items-center">
                                 <a href="{{ absolute_url(path('app_home'))}}"><i class="fa-solid fa-house"></i></a>
-                                <a href="#">Communication</a>
-                                <a href="#">Évènementiel</a>
+                                <a href="{{ absolute_url(path('app_maintenance')) }}">Communication</a>
+                                <a href="{{ absolute_url(path('app_maintenance'))}}">Évènementiel</a>
                                 <a href="http://tv.dreammakerci.com" target="_blank">DreamTV</a>
                                 <a href="#" class="icon-social"><i class="fa-brands fa-facebook-square"></i></a>
                                 <a href="#" class="icon-social"><i class="fa-brands fa-twitter-square"></i></a>
@@ -85,7 +85,7 @@
                                         <a class="nav-link" href="#"><span>Contact</span></a>
                                     </li>
                                     <li class="nav-item" style="margin-left: 10px;">
-                                        <a href="http://shop.dreammakerci.com" class="btn btn-outline-danger btn-sm">Boutique</a>
+                                        <a href="http://shop.dreammakerci.com" class="btn btn-outline-danger btn-sm" target="_blank">Boutique</a>
                                     </li>
                                 </ul>
                             </div>
@@ -103,9 +103,9 @@
 
                         <ul class="nav col-md-8 justify-content-end">
                             <li class="nav-item"><a href="{{ absolute_url(path('app_showbiz_home')) }}" class="nav-link px-2"><i class="fa-solid fa-house"></i></a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 ">Présentation</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2">Services</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2">Label</a></li>
+                            <li class="nav-item"><a href="{{ absolute_url(path('app_showbiz_presentation')) }}" class="nav-link px-2 ">Présentation</a></li>
+                            <li class="nav-item"><a href="{{ absolute_url(path('app_showbiz_service_index')) }}" class="nav-link px-2">Services</a></li>
+                            <li class="nav-item"><a href="{{ absolute_url(path('app_showbiz_label')) }}" class="nav-link px-2">Label</a></li>
                             <li class="nav-item"><a href="#" class="nav-link px-2">Blog</a></li>
                             <li class="nav-item"><a href="#" class="nav-link px-2">Contact</a></li>
                             <li class="nav-item"><a href="#" class="nav-link px-2">Plan du site</a></li>

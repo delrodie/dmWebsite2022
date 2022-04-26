@@ -34,7 +34,7 @@
                             </div>
                             <h1>{{ service.titre }}</h1>
                             <p>{{ service.resume|raw }}...</p>
-                            <a href="{{ path('app_showbiz_service_show', {'slug': service.slug}) }}">Voir détails &raquo;</a>
+                            <a href="{{ absolute_url(path('app_showbiz_service_show', {'slug': service.slug})) }}">Voir détails &raquo;</a>
                         </div>
                     {% endfor %}
 

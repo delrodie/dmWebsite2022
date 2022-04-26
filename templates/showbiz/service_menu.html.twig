@@ -1,5 +1,5 @@
 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	{% for service in services %}
-		<li><a class="dropdown-item" href="{{ path('app_showbiz_service_show', {'slug': service.slug}) }}">{{ service.titre }}</a></li>
+		<li><a class="dropdown-item" href="{{ absolute_url(path('app_showbiz_service_show', {'slug': service.slug})) }}">{{ service.titre }}</a></li>
 	{% endfor %}
 </ul>

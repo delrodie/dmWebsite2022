@@ -1,0 +1,12 @@
+{% extends 'base_event.html.twig' %}
+
+{% block title %}{{ parent() }} Evénementiel{% endblock %}
+
+{% block body %}
+    <section id="video-bg" class="video">
+        <video class="video active" src="{{ absolute_url(asset('video/media.mp4')) }}" autoplay muted loop></video>
+        <div class="video-overlay">
+            <h1>Le <u>partenaire indiqué</u>  pour <br> l'organisation de <span>vos projets évènementiels</span></h1>
+        </div>
+    </section>
+{% endblock %}

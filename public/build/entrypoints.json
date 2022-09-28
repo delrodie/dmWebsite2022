@@ -3,11 +3,22 @@
     "dreammaker": {
       "js": [
         "/build/runtime.53a95366.js",
-        "/build/778.d334087a.js",
-        "/build/dreammaker.f2a4669b.js"
+        "/build/25.b7483c78.js",
+        "/build/363.06baeeee.js",
+        "/build/dreammaker.efd80411.js"
       ],
       "css": [
-        "/build/dreammaker.d576614d.css"
+        "/build/dreammaker.934238ba.css"
+      ]
+    },
+    "event": {
+      "js": [
+        "/build/runtime.53a95366.js",
+        "/build/25.b7483c78.js",
+        "/build/event.ea75fd59.js"
+      ],
+      "css": [
+        "/build/event.2b88a2df.css"
       ]
     }
   }

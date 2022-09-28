@@ -1,4 +1,9 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji");
+@import url("https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+@import url("https://unpkg.com/aos@2.3.1/dist/aos.css");
 * {
   box-sizing: border-box;
 }
@@ -16,7 +21,7 @@
 }
 
 .overlay {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/images/cover/slide3.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/cover/slide3.jpg");
   background-size: cover;
 }
 
@@ -87,7 +92,6 @@ main .slogan h1 div:last-of-type span {
   top: 0;
   left: 0;
   right: 0;
-  left: 0;
   background: rgba(1, 75, 136, 0.7);
   overflow: hidden;
   width: 100%;
@@ -213,7 +217,7 @@ footer {
 .page-secondaire .services a {
   text-decoration: none;
   font-weight: bold;
-  color: none;
+  color: inherit;
 }
 .page-secondaire .services a:hover {
   color: #a60101;
@@ -231,7 +235,7 @@ footer {
 }
 .page-secondaire .accueil-albums h1::before {
   font: var(--fa-font-solid);
-  content: "\f54f";
+  content: "";
   padding-right: 10px;
   color: #014b88;
 }
@@ -241,15 +245,15 @@ footer {
 .page-secondaire .accueil-albums h1:hover::before {
   color: #a60101;
 }
+.page-secondaire .accueil-albums figure {
+  overflow: hidden;
+}
 .page-secondaire .accueil-albums figure img {
-  -webkit-transform: scale(1);
   transform: scale(1);
-  -webkit-transition: 0.3 ease-in-out;
   transition: 0.3s ease-in-out;
 }
 .page-secondaire .accueil-albums figure:hover img {
   transform: scale(1.5);
-  -webkit-transform: scale(1.5);
 }
 .page-secondaire .accueil-artistes h1 {
   color: #4b4a4a;
@@ -261,7 +265,7 @@ footer {
 }
 .page-secondaire .accueil-artistes h1::before {
   font: var(--fa-font-solid);
-  content: "\f0c0";
+  content: "";
   padding-right: 10px;
   color: #014b88;
 }
@@ -313,7 +317,7 @@ footer {
 }
 .partenaires h1::before {
   font: var(--fa-font-solid);
-  content: "\f508";
+  content: "";
   padding-right: 10px;
   color: #014b88;
 }
@@ -329,6 +333,14 @@ footer {
 }
 .partenaires .logo {
   display: inline;
+}
+.partenaires .logo img {
+  filter: grayscale(100%);
+  transition: 0.3S ease-in-out;
+  cursor: pointer;
+}
+.partenaires .logo:hover img {
+  filter: grayscale(0);
 }
 
 footer.page-secondaire-footer {
@@ -372,6 +384,8 @@ footer.page-secondaire-footer a:hover {
 
 .content-principal {
   margin: 20px auto 100px;
+  padding-right: 50px;
+  text-align: justify;
 }
 .content-principal h3 {
   padding: 10px 0;
@@ -381,8 +395,71 @@ footer.page-secondaire-footer a:hover {
   color: #a60101;
   cursor: pointer;
 }
-.content-principal img {
-  margin-bottom: 40px;
+.content-principal .portrait {
+  float: left;
+  margin-right: 20px;
+  max-width: 50%;
+}
+.content-principal .portrait table.artiste {
+  border: solid 1px rgba(17, 118, 190, 0.5);
+}
+.content-principal .portrait table.artiste .media {
+  transition: 0.5s ease-in-out;
+}
+.content-principal .portrait table.artiste .media td {
+  overflow: hidden;
+}
+.content-principal .portrait table.artiste .media img {
+  padding: 10px;
+  cursor: pointer;
+}
+.content-principal .portrait table.artiste .media:hover img {
+  transform: scale(1.5);
+}
+.content-principal .portrait table.artiste .nom td {
+  background: #1176be;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.content-principal .portrait table.artiste .booking td,
+.content-principal .portrait table.artiste .albums td {
+  margin: 5px auto;
+  padding: 10px;
+  text-align: center;
+  background: rgba(1, 75, 136, 0.1);
+  font-weight: bold;
+}
+.content-principal .portrait table.artiste .infos th {
+  padding: 5px 0 7px 10px;
+}
+.content-principal .portrait table.artiste .infos th:last-child {
+  padding-bottom: 15px;
+}
+.content-principal .portrait table.artiste .infos td {
+  padding-right: 10px;
+}
+.content-principal .portrait table.artiste .infos .fa-brands, .content-principal .portrait table.artiste .infos .fa {
+  font-size: 1.4rem;
+  padding: 0 3px;
+}
+.content-principal .portrait table.artiste .liste td {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+}
+.content-principal .portrait table.artiste .liste a {
+  display: inline;
+  text-decoration: none;
+  padding-top: 10px;
+}
+.content-principal .informations-album {
+  font-size: 0.9rem;
+}
+.content-principal .informations-album .col-8 {
+  font-weight: 700;
 }
 
 .following {
@@ -394,7 +471,7 @@ footer.page-secondaire-footer a:hover {
 .following .icon-social {
   margin-right: 10px;
 }
-.following .icon-social::last-child {
+.following .icon-social:last-child {
   margin-right: 0;
 }
 .following .icon-social i {
@@ -544,7 +621,7 @@ footer.page-secondaire-footer a:hover {
   padding: 0;
 }
 #compresentation.compresentation {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(1, 11, 19, 0.8)), url(/assets/images/cover/home.jpg);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(1, 11, 19, 0.8)), url(../images/cover/home.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
